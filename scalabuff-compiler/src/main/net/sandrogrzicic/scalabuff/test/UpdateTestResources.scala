@@ -67,10 +67,10 @@ object UpdateTestResources extends App {
 				val generatedPath = testDir + generated.path + generated.file + ".scala"
 
         new File(testDir + generated.path).mkdirs()
-
+				new File(generatedPath).delete()
         val generatedClass = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(generatedPath), "utf-8"))
 				try {
-          new File(generatedPath).delete()
+
           generatedClass.write(generated.body)
 				} finally {
 					generatedClass.close()
